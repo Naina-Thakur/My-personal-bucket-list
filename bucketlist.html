@@ -1,0 +1,117 @@
+<html >
+<head>
+    <title>Personal Bucket List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: rgba(17, 9, 107, 0.9);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .bucket-card {
+            background: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .bucket-card:hover {
+            background-color: #d4edda;
+            transform: scale(1.05);
+        }
+        .bucket-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 16px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Personal Bucket List</h1>
+    </header>
+    
+    <main>
+        <div class="bucket-card">
+            <img src="japan.jpg" alt="Japan Icon">
+            <h2>Travel to Japan</h2>
+            <p>Experience cherry blossoms and traditional culture.</p>
+        </div>
+        <div class="bucket-card">
+            <img src="languaue.jpg" alt="Language Icon">
+            <h2>Learn a New Language</h2>
+            <p>Become fluent in a second language.</p>
+        </div>
+        <div class="bucket-card">
+            <img src="skydiving.jpg" alt="Skydiving Icon">
+            <h2>Go Skydiving</h2>
+            <p>Feel the adrenaline rush from the sky!</p>
+        </div>
+        <div class="bucket-card">
+            <img src="marathon.jpg" alt="Marathon Icon">
+            <h2>Run a Marathon</h2>
+            <p>Achieve the challenge of completing a full marathon.</p>
+        </div>
+        <div class="bucket-card">
+            <img src="books.jpg" alt="Writing Icon">
+            <h2>Write a Book</h2>
+            <p>Publish my own book and share my thoughts with the world.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My Bucket List | Designed with ❤</p>
+    </footer>
+</body>
+</html>
