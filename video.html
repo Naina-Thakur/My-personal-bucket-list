@@ -1,0 +1,189 @@
+<html>
+<head>
+  <title>Himalayas image Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #8c5858;
+    }
+    .container {
+      width: 100%;
+      height: 800px;  /* Adjusted height */
+      background-image: ""C:\Users\DELL\OneDrive\Desktop\Bucket list\bd-img.jpg""; /* Add your background image here */
+      background-size:100%;
+      background-repeat: no-repeat;
+    }
+    .viewport {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    }
+    .viewbox {
+      perspective: 100vw;
+      width: 33.3333%;
+      max-width: 280px;
+      transform-style: preserve-3d;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .slider__container {
+      display: flex;
+      transition: transform 1s ease;
+    }
+    .wgh-slider__item {
+      position: relative;
+      width: 100%;
+      height: 50%;
+      opacity: 1;
+      transform: scale(0.8);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .wgh-slider__item.active {
+      transform: scale(1) rotateY(0deg); /* Center image */
+      opacity: 1;
+    }
+    .wgh-slider__item.left {
+      transform: scale(0.8) rotateY(-30deg); /* Image to the left */
+      opacity: 0.5;
+    }
+    .wgh-slider__item.right {
+      transform: scale(0.8) rotateY(30deg); /* Image to the right */
+      opacity: 0.5;
+    }
+    .wgh-slider-item-figure {
+      position: relative;
+      width: 600%;
+      height: 200%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .image {
+      width: 200%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+    .slider-caption{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      text-align: center;
+    }
+    .slider-caption a {
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .slider-caption span {
+      font-size: 14px;
+      color: white;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wgh-slider">
+      <div class="viewport">
+        <div class="viewbox">
+          <div class="slider__container">
+            <!-- Slide 1 -->
+            <div class="wgh-slider__item left">
+              <div class="wgh-slider-item__inner">
+                <figure class="wgh-slider-item-figure">
+                  <img class="image" src="img1.jpg""/>
+                  <figcaption class="slider-caption">
+                    <span>The Majestic Mountains</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="wgh-slider__item active">
+              <div class="wgh-slider-item__inner">
+                <figure class="wgh-slider-item-figure">
+                  <img class="image" src="img2.jpg"/>
+                  <figcaption class="slider-caption">
+                    <span>The Highest Snow Capped Peaks</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="wgh-slider__item right">
+              <div class="wgh-slider-item__inner">
+                <figure class="wgh-slider-item-figure">
+                  <img class="image" src="img3.jpg"/>
+                  <figcaption class="slider-caption">
+                    <span>The Serenity of the Himalayas</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="wgh-slider__item">
+              <div class="wgh-slider-item__inner">
+                <figure class="wgh-slider-item-figure">
+                  <img class="image" src="img4.jpg"/>
+                  <figcaption class="slider-caption">
+                    <span>A Breathtaking View</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="wgh-slider__item">
+              <div class="wgh-slider-item__inner">
+                <figure class="wgh-slider-item-figure">
+                  <img class="image" src="img5.jpg"/>
+                  <figcaption class="slider-caption">
+                    <span>Snow-Capped and Majestic</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let slides = document.querySelectorAll('.wgh-slider__item');
+    let currentIndex = 1;
+
+    setInterval(() => {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'left', 'right');
+        
+        if(index === currentIndex) {
+          slide.classList.add('active');
+        } else if(index === currentIndex - 1 || (currentIndex === 0 && index === slides.length - 1)) {
+          slide.classList.add('left');
+        } else if(index === currentIndex + 1 || (currentIndex === slides.length - 1 && index === 0)) {
+          slide.classList.add('right');
+        }
+      });
+
+      currentIndex = (currentIndex + 1) % slides.length;
+    }, 3000); // Adjust interval time for auto-swipe
+  </script>
+</body>
+</html>
